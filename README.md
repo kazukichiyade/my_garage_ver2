@@ -1,24 +1,7 @@
-# README
+My_Garage
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+日本語で私の車庫と書いている通り、自分の自慢のマイカーをメインに投稿し
 
-Things you may want to cover:
+どこへ出掛けたやパーツを変えたなど自慢のマイカーを車好きに向けて発信する。
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+いわば、マイカーコミュニティである。
