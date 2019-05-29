@@ -11,6 +11,7 @@ body {
 }
 
 /* header */
+
 .navbar-brand {
   font-weight: normal;
 }
@@ -53,9 +54,18 @@ aside {
 }
 
 /* footer */
+
 footer p {
   margin-bottom: 0px;
   color: whitesmoke;
   text-align: center;
   padding: 10px;
+}
+
+/* debug */
+.debug_dump {
+  box-sizing: border-box;
+  clear: both;
+  width: 100%;
+  margin: 100px 0px;
 }
