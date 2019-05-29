@@ -1,0 +1,61 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* body */
+body {
+  background-image: url("garage.jpg");
+  background-size: cover;
+  font-family: Avenir, "Helvetica Neue", Helvetica, Arial, "Hiragino Sans",
+    ヒラギノ角ゴシック, YuGothic, "Yu Gothic", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic";
+  margin: 0 auto;
+}
+
+/* header */
+.navbar-brand {
+  font-weight: normal;
+}
+
+.size1 {
+  font-size: 30px;
+}
+
+.header-btn {
+  margin-right: 30px;
+}
+
+/* home */
+hr {
+  border: 2px solid #eeeeee;
+}
+
+.center {
+  text-align: center;
+  letter-spacing: 5px;
+  line-height: 2;
+  padding: 40px 60px;
+  p {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  }
+}
+
+
+/* login-form */
+aside {
+  border: 2px solid #eeeeee;
+  color: black;
+  background-color: whitesmoke;
+  padding: 25px 15px;
+  h3 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+}
+
+/* footer */
+footer p {
+  margin-bottom: 0px;
+  color: whitesmoke;
+  text-align: center;
+  padding: 10px;
+}
