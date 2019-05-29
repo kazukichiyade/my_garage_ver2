@@ -54,4 +54,20 @@ class UserTest < ActiveSupport::TestCase
       assert_not @user.valid?, "#{invalid_address.inspect} should be invalid"
     end
   end
+
+  # 重複するメールアドレスを拒否するテスト
+  test "email addresses should be unique" do
+    duplicate_user = @user.dup
+    duplicate_user.email = @user.email.upcase
+    @user.save
+    assert_not duplicate_user.valid?
+  end
+
+  # メールアドレスの小文字化に対するテスト
+  test "email addresses downcase" do
+    mix_addresses_email = "Foo@ExAMPle.CoM"
+    @user.email = mix_addresses_email
+    @user.save
+    assert_equal mix_addresses_email.downcase, @user.reload.email
+  end
 end
