@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include Gravtastic
+  gravtastic
   # selfは現在のユーザーを指す
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 50 }
