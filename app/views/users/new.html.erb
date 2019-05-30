@@ -1,2 +1,42 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="form-signup">
+  <div class=" row home-signup">
+    <aside class="form-main">
+      <h3>SIGN UP FORM</h3>
+      <div class="card">
+        <article class="card-body">
+          <form>
+            <div class="form-group">
+              <label>名前</label>
+              <input name="" class="form-control" placeholder="Name" type="text">
+            </div> <!-- form-group// -->
+            <div class="form-group">
+              <label>メールアドレス</label>
+              <input class="form-control" placeholder="Email" type="email">
+            </div> <!-- form-group// -->
+            <div class="form-group">
+              <label>パスワード</label>
+              <%= link_to "パスワードを忘れましたか？", "#", class: "float-right" %>
+              <input class="form-control" placeholder="Password" type="password">
+            </div> <!-- form-group// -->
+            <div class="form-group">
+              <label>パスワード確認用</label>
+              <input class="form-control" placeholder="Password_confirmation" type="password">
+            </div> <!-- form-group// -->
+            <div class="form-group">
+              <div class="checkbox">
+                <label> <input type="checkbox">パスワードを保存する</label>
+              </div> <!-- checkbox // -->
+            </div> <!-- form-group// -->
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-block">アカウントを作成する</button>
+            </div> <!-- form-group// -->
+            <div class="form-group">
+              <label>アカウントをお持ちの方はこちら</label>
+              <%= link_to "ログインする", root_path, class: "float-right" %>
+            </div>  <!--form-group//-->
+          </form>
+        </article>
+      </div> <!-- card// -->
+    </aside>
+  </div>
+</div>
