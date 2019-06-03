@@ -3,7 +3,7 @@ require 'test_helper'
 class UsersSignupTest < ActionDispatch::IntegrationTest
 
   # 無効なユーザー登録に対するテスト
-  test "invalid signup information" do
+  test "invalid signup" do
     get signup_path
     assert_no_difference 'User.count' do
       post users_path, params: { user: { name: "",
@@ -15,7 +15,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   end
 
   # 有効なユーザー登録に対するテスト
-  test "valid signup information" do
+  test "valid signup" do
     get signup_path
     assert_difference "User.count", 1 do
       post users_path, params: { user: { name: "Example User",
