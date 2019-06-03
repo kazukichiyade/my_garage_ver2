@@ -1,0 +1,48 @@
+<%# login %>
+
+<div class="form">
+  <div class=" row home-login">
+    <aside class="form-main">
+      <h3>LOGIN FORM</h3>
+      <div class="card">
+        <article class="card-body">
+          <%= form_for(:session, url: login_path) do |f| %>
+            
+
+            <!-- form-group// -->
+            <div class="form-group">
+              <%= f.label :メールアドレス %>
+              <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
+            </div>
+
+            <!-- form-group// -->
+            <div class="form-group">
+              <%= f.label :パスワード %>
+              <%= link_to "パスワードを忘れましたか？", "#", class: "float-right" %>
+              <%= f.password_field :password, class: "form-control", placeholder: "password" %>
+            </div>
+
+            <!-- checkbox // -->
+            <div class="form-group">
+              <div class="checkbox">
+                <label> <input type="checkbox">パスワードを保存する</label>
+              </div>
+            </div>
+
+            <!-- form-group// -->
+            <div class="form-group">
+              <%= f.submit "ログインする", class: "btn btn-primary btn-block" %>
+            </div>
+
+            <!-- form-group// -->
+            <div class="form-group">
+              <%= f.label :ご新規の方はこちら %>
+              <%= link_to "アカウントを作成する", signup_path, class: "float-right" %>
+            </div>
+
+          <% end %>
+        </article>
+      </div> <!-- card// -->
+    </aside> <!-- col// -->
+  </div>
+</div>

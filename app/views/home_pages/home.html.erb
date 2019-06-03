@@ -7,35 +7,49 @@
 
 
   <hr>
+  <%# login %>
+
   <div class="form-login">
     <div class=" row home-login">
       <aside class="col-sm-4">
         <h3>LOGIN FORM</h3>
         <div class="card">
           <article class="card-body">
-            <form>
+            <%= form_for(:session, url: login_path) do |f| %>
+              
+
+              <!-- form-group// -->
               <div class="form-group">
-                <label>メールアドレス</label>
-                <input name="" class="form-control" placeholder="Email" type="email">
-              </div> <!-- form-group// -->
+                <%= f.label :メールアドレス %>
+                <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
+              </div>
+
+              <!-- form-group// -->
               <div class="form-group">
-                <label>パスワード</label>
+                <%= f.label :パスワード %>
                 <%= link_to "パスワードを忘れましたか？", "#", class: "float-right" %>
-                <input class="form-control" placeholder="Password" type="password">
-              </div> <!-- form-group// -->
+                <%= f.password_field :password, class: "form-control", placeholder: "password" %>
+              </div>
+
+              <!-- checkbox // -->
               <div class="form-group">
                 <div class="checkbox">
                   <label> <input type="checkbox">パスワードを保存する</label>
-                </div> <!-- checkbox // -->
-              </div> <!-- form-group// -->
+                </div>
+              </div>
+
+              <!-- form-group// -->
               <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">ログインする</button>
-              </div> <!-- form-group// -->
+                <%= f.submit "ログインする", class: "btn btn-primary btn-block" %>
+              </div>
+
+              <!-- form-group// -->
               <div class="form-group">
-                <label>ご新規の方はこちら</label>
+                <%= f.label :ご新規の方はこちら %>
                 <%= link_to "アカウントを作成する", signup_path, class: "float-right" %>
-              </div>  <!--form-group//-->
-            </form>
+              </div>
+
+            <% end %>
           </article>
         </div> <!-- card// -->
       </aside> <!-- col// -->
