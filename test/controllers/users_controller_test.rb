@@ -2,8 +2,8 @@ require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
 
-  # users#newにアクセスできるかのテスト
-  test "should get new" do
+  # users#signupにアクセスできるかのテスト
+  test "should get signup" do
     get signup_path
     assert_response :success
   end

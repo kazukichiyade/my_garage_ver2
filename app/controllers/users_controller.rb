@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def new
+  def signup #new
     @user = User.new
   end
 
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       flash[:success] = "アカウントを作成しました"
       redirect_to @user #@user == user_url(@user)
     else
-      render 'new'
+      render 'signup'
     end
   end
 

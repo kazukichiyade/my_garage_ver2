@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class UsersSignupTest < ActionDispatch::IntegrationTest
-  
+
   # 無効なユーザー登録に対するテスト
   test "invalid signup information" do
     get signup_path
@@ -11,7 +11,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                           password: "foo",
                                           password_confirmation: "bar" } }
     end
-    assert_template 'users/new'
+    assert_template 'users/signup'
   end
 
   # 有効なユーザー登録に対するテスト

@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  def new
+  def login #new
   end
 
   def create
@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
     else
       flash.now[:danger] = "メールアドレスとパスワードのセットが違います"
-      render 'new'
+      render 'login'
     end
   end
 
