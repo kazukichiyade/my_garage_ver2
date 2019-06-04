@@ -3,15 +3,30 @@
     <%= link_to "My Garage", root_path, class:"navbar-brand size1" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li class="header-btn">
-          <%= link_to "HOME", root_path, class:"navbar-brand" %>
-        </li>
-        <li class="header-btn">
-          <%= link_to "LOGIN", login_path, class:"navbar-brand" %>
-        </li>
-        <li class="header-btn">
-          <%= link_to "SIGN UP", signup_path, class:"navbar-brand" %>
-        </li>
+        <% if logged_in? %>
+          <li class="header-btn">
+            <%= link_to "投稿する", "#", class:"navbar-brand" %>
+          </li>
+          <li class="header-btn">
+            <%= link_to "投稿一覧", "#", class:"navbar-brand" %>
+          </li>
+          <li class="header-btn">
+            <%= link_to "PROFILE", "#", class:"navbar-brand" %>
+          </li>
+          <li class="header-btn">
+            <%= link_to "LOGOUT", "#", class:"navbar-brand" %>
+          </li>
+        <% else %>
+          <li class="header-btn">
+            <%= link_to "HOME", root_path, class:"navbar-brand" %>
+          </li>
+          <li class="header-btn">
+            <%= link_to "LOGIN", login_path, class:"navbar-brand" %>
+          </li>
+          <li class="header-btn">
+            <%= link_to "SIGN UP", signup_path, class:"navbar-brand" %>
+          </li>
+        <% end %>
       </ul>
     </nav>
   </div>
