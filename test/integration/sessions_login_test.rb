@@ -17,7 +17,7 @@ class SessionsLoginTest < ActionDispatch::IntegrationTest
     assert flash.empty?
   end
 
-  # ログインしてからviewなど確認
+  # ログインしてからviewなど確認ログアウトまで
   test "valid login" do
     get login_path
     assert_template 'sessions/login'
@@ -28,5 +28,13 @@ class SessionsLoginTest < ActionDispatch::IntegrationTest
     assert_template 'users/show'
     assert_select "a[href=?]", login_path, count: 0
     assert_select "a[href=?]", signup_path, count: 0
+    delete logout_path
+    assert_not is_logged_in?
+    assert_redirected_to root_url
+    follow_redirect!
+    assert_template '/'
+    assert_select "a[href=?]", root_path, count: 2
+    assert_select "a[href=?]", signup_path, count: 2
+    assert_select "a[href=?]", login_path, count: 1
   end
 end
