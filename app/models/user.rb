@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   include Gravtastic
   gravtastic
-  # 仮想の属性を作成
+  # 仮想の属性を作成 #has_secure_passwordの場合は(password属性)自動生成される
+  # remember_digestとセット
   attr_accessor :remember_token
   # selfは現在のユーザーを指す
   before_save { self.email = email.downcase }
@@ -32,9 +33,19 @@ class User < ApplicationRecord
     # selfを使う事によってremember_tokenのローカル変数が作成されない
     # selfは現在のユーザーを指す
     self.remember_token = User.new_token
-    # 記憶ダイジェストを更新
+    # 記憶ダイジェストを更新(バリデーション素通りさせる)
     update_attribute(:remember_digest, User.digest(remember_token))
   end
 
+  # 渡されたトークンがダイジェストと一致したらtrueを返す (remember_token)はローカル変数
+  def authenticated?(remember_token)
+    # 記憶digestがnilの場合falseを返しreturnで終了(ログアウトした場合2重でloginは不可)
+    return false if remember_digest.nil?
+    Bcrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
 
+  # ユーザーのログイン情報を破棄する
+  def forget
+    update_attribute(:remember_digest, nil)
+  end
 end
