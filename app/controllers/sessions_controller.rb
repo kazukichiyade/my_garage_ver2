@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       # 渡されたユーザーでログインする
       log_in user #sessions_helper
+      params[:session][:remember_me] == "1" ? remember(user) : forget(user)
       remember user #sessions_helper
       redirect_to user  #user_url(user)
     else

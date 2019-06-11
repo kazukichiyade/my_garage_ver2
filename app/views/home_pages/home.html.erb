@@ -36,9 +36,10 @@
 
               <!-- checkbox // -->
               <div class="form-group">
-                <div class="checkbox">
-                  <label> <input type="checkbox">パスワードを保存する</label>
-                </div>
+                <%= f.label :remember_me, class: "checkbox" do %>
+                  <%= f.check_box :remember_me %>
+                  <span>パスワードを保存する</span>
+                <% end %>
               </div>
 
               <!-- form-group// -->
