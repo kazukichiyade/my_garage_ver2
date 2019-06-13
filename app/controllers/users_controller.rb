@@ -23,6 +23,15 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def update
+    @user = User.find(params[:id])
+    # 更新に成功した場合
+    if @user.update_attributes(user_params)
+    else
+      render 'edit'
+    end
+  end
+
   # 外部から使えない
   private
 

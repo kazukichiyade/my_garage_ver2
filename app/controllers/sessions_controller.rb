@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    # find_byはusersテーブルにindexを導入してるから使用可能(index = 辞書索引)
     # ユーザーをデータベースから見つけて検証する
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
