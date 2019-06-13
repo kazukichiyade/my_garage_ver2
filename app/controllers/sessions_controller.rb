@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
       params[:session][:remember_me] == "1" ? remember(user) : forget(user)
       remember user #sessions_helper
       redirect_to user  #user_url(user)
+      flash[:success] = "ログインしました"
     else
       flash.now[:danger] = "メールアドレスとパスワードのセットが違います"
       render 'login'

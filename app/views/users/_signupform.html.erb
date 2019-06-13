@@ -1,0 +1,39 @@
+<%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages' %>
+
+  <!-- form-group// -->
+  <div class="form-group">
+    <%= f.label :名前 %>
+    <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+  </div>
+
+  <!-- form-group// -->
+  <div class="form-group">
+    <%= f.label :メールアドレス %>
+    <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
+  </div>
+
+  <!-- form-group// -->
+  <div class="form-group">
+    <%= f.label :パスワード %>
+    <%= link_to "パスワードを忘れましたか？", "#", class: "float-right" %>
+    <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+  </div>
+
+  <!-- form-group// -->
+  <div class="form-group">
+    <%= f.label :パスワード確認用 %>
+    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Password_confirmation" %>
+  </div>
+
+  <!-- form-group// -->
+  <div class="form-group">
+    <%= f.submit "アカウントを作成する", class: "btn btn-primary btn-block" %>
+  </div>
+
+  <!-- form-group// -->
+    <div class="form-group">
+      <%= f.label :アカウントをお持ちの方はこちら %>
+      <%= link_to "ログインする", login_path, class: "float-right" %>
+    </div>
+<% end %>
