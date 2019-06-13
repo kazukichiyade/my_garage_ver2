@@ -13,6 +13,8 @@ class User < ApplicationRecord
             uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
+  validates :a_word, length: { maximum: 30 }
+  validates :introduction, length: { maximum: 300 }
 
   # 定義する事によりfixtureを作成できるようになる
   # 渡された文字列のハッシュ値を返す

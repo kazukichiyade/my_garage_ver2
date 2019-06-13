@@ -27,6 +27,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     # 更新に成功した場合
     if @user.update_attributes(user_params)
+      redirect_to @user
+      flash.now[:success] = "プロフィールを更新しました"
     else
       render 'edit'
     end
@@ -38,7 +40,7 @@ class UsersController < ApplicationController
     # Strong Parameters(必須のパラメータと許可されたパラメータを指定)
     def user_params
       params.require(:user).permit(:name, :email, :password,
-                      :password_confirmation)
+                      :password_confirmation, :a_word, :introduction)
     end
 end
 
