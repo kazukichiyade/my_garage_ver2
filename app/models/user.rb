@@ -41,7 +41,7 @@ class User < ApplicationRecord
   def authenticated?(remember_token)
     # 記憶digestがnilの場合falseを返しreturnで終了(ログアウトした場合2重でloginは不可)
     return false if remember_digest.nil?
-    Bcrypt::Password.new(remember_digest).is_password?(remember_token)
+    BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 
   # ユーザーのログイン情報を破棄する

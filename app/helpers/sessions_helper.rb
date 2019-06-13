@@ -17,7 +17,8 @@ module SessionsHelper
   def current_user
     if (user_id = session[:user_id]) #ユーザーIDが存在しない場合、コードが終了してnilを返す、# 代入した結果user_idのsessionが存在すれば)
       @current_user ||= User.find_by(id: user_id) # User.find_byを使う事で最初の一回だけリクエスト
-    elsif (user_id = cookies.signed[:user_id]) 
+    elsif (user_id = cookies.signed[:user_id])
+      # raise # テストがパスすれば、この部分がテストされていないことがわかる
       user = User.find_by(id: user_id)
       if user && user.authenticated?(cookies[:remember_token])
         log_in user

@@ -39,4 +39,19 @@ class SessionsLoginTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", signup_path, count: 2
     assert_select "a[href=?]", login_path, count: 1
   end
+
+  # テストユーザーとしてログインしてremember_meがあるかのテスト(単体テスト)
+  test "login remember-me" do
+    log_in_as(@user, remember_me: '1')
+    assert_not_empty cookies['remember_token'] #テスト内ではcookiesメソッドにシンボルは使えない
+  end
+
+  # テストユーザーとしてログインしてログアウトするまでのremember_meがあるかのテスト(統合テスト)
+  test "login without remember-me" do
+    # クッキーを保存してログイン
+    log_in_as(@user, remember_me: '1')
+    delete logout_path
+    # クッキーを削除してログアウト
+    log_in_as(@user, remember_me: '0')
+  end
 end
