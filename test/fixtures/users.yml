@@ -1,6 +1,13 @@
 kazukichi:
-  name: Kazuki Sakata
-  email: kazuki@example.com
+  name: Kazukichi
+  email: kazukichi@example.com
   password_digest: <%= User.digest('password') %>
   a_word: "マツダアテンザ"
+  introduction: "こんにちは"
+
+ayachan:
+  name: ayachan
+  email: ayachan@example.com
+  password_digest: <%= User.digest('password') %>
+  a_word: "トヨタプリウス"
   introduction: "こんにちは"

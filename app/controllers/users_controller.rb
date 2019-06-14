@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  # editかupdateの処理がされる直前にlogged_in_userメソッドが実行(:onlyを渡す事で指定できる)
+  before_action :logged_in_user, only:[:edit, :update]
+  before_action :correct_user, only:[:edit, :update]
 
   def show
     @user = User.find(params[:id])
@@ -8,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  # アカウント作成
   def create
     @user = User.new(user_params)
     if @user.save
@@ -42,5 +46,24 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password,
                       :password_confirmation, :a_word, :introduction)
     end
+
+    #before_action
+
+    # ログイン済みユーザーか確認
+    def logged_in_user
+      unless logged_in?
+        flash[:danger] = "ログインしてください"
+        redirect_to login_url
+      end
+    end
+
+    # 正しいユーザーかどうか確認
+    def correct_user
+      @user = User.find(params[:id])
+      # unless文(後置) current_user?が成り立たない場合redirect_toが発動
+      flash[:danger] = "無効なページです"
+      redirect_to(root_url) unless current_user?(@user)
+    end
+
 end
 

@@ -12,9 +12,11 @@ class User < ApplicationRecord
             format: { with: VALID_EMAIL_REGEX },
             uniqueness: { case_sensitive: false }
   has_secure_password
+  # allow_nil: trueはプロフィール更新時パスワードがnilでもtrueになる
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   validates :a_word, length: { maximum: 30 }
   validates :introduction, length: { maximum: 100 }
+
 
   # 定義する事によりfixtureを作成できるようになる
   # 渡された文字列のハッシュ値を返す

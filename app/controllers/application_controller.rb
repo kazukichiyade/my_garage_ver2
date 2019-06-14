@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper #controller内どこでも使えるようになる
+  include UsersHelper
   # フラッシュメッセージに動きを付けるため必要
   add_flash_types :success, :danger, :info, :warning
 
@@ -12,3 +13,5 @@ end
 # Read   => データ一覧・個別の表示(index, show) GET
 # Update => データの更新(edit, update) PUT/PATCH
 # Delete => データの削除(delete) DELETE
+
+# _urlはredirect_toする場合のみ, 主にcontrollerに用いられる

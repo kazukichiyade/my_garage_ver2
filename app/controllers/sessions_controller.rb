@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   def login #new
   end
 
+  # ログインする
   def create
     # find_byはusersテーブルにindexを導入してるから使用可能(index = 辞書索引)
     # ユーザーをデータベースから見つけて検証する
