@@ -63,8 +63,10 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       # unless文(後置) current_user?が成り立たない場合redirect_toが発動
-      flash[:danger] = "無効なページです"
-      redirect_to(root_url) unless current_user?(@user)
+      unless current_user?(@user)
+        redirect_to(root_url)
+        flash[:danger] = "無効な操作です"
+      end
     end
 
 end
