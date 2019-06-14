@@ -85,4 +85,23 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_not flash.empty?
     assert_redirected_to root_url
   end
+
+  # フレンドリーフォアーディングのテスト
+  test "friendly forwarding" do
+    get edit_user_path(@user)
+    log_in_as(@user)
+    assert_redirected_to edit_user_url(@user)
+    patch user_path(@user), params: { user: { name: name,
+                            email: email,
+                            password: "",
+                            password_confirmation: "",
+                            a_word: a_word,
+                            introduction: introduction } }
+    assert_not flash.empty?
+    assert_redirected_to @user
+    @user.reload
+    assert_equal name, @user.name
+    assert_equal a_word, @user.a_word
+    assert_equal introduction, @user.introduction
+  end
 end
