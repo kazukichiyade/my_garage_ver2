@@ -15,3 +15,9 @@
 //= require jquery
 //= require bootstrap
 //= require_tree .
+//= require bootstrap-sprockets
+
+// flashメッセージのアラートに対する動き(3秒後にゆっくり消える)
+$(function(){
+  setTimeout("$('.alert').fadeOut('slow')", 3000)
+});
