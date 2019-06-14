@@ -6,3 +6,9 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 end
+
+# 基本的なCRUD
+# Create => 新規作成(new, create) POST/PUT
+# Read   => データ一覧・個別の表示(index, show) GET
+# Update => データの更新(edit, update) PUT/PATCH
+# Delete => データの削除(delete) DELETE
