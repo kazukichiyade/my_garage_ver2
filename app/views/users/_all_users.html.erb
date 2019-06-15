@@ -1,0 +1,10 @@
+<ul class="all-users">
+  <% @all_user.each do |user| %>
+    <li class="users">
+      <%= gravatar_for user %>
+      <%= link_to user.name %>
+      <%= link_to "delete", user, method: :delete, class: "btn btn-danger pull-right",
+                      data: { confirm: "You sure?" } %>
+    </li>
+  <% end %>
+</ul>
