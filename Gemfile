@@ -11,6 +11,7 @@ gem 'jquery-rails', '4.3.1'
 gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.7.0'
 gem 'gravtastic',   '3.2.6'
+gem 'kaminari',     '0.17.0'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
@@ -23,6 +24,7 @@ group :development do
   gem 'spring',                '2.0.2'
   gem 'spring-watcher-listen', '2.0.1'
   gem 'rails-erd',             '1.6.0'
+  gem 'faker',                 '1.7.3'
 end
 
 group :test do
