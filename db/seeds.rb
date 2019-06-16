@@ -3,7 +3,8 @@ User.create!(name:  "kazukichi",
   password:              "aaaaaa",
   password_confirmation: "aaaaaa",
   a_word: "マツダ",
-  introduction: "宜しくお願いします")
+  introduction: "宜しくお願いします",
+  admin: true)
 
 99.times do |n|
 name  = Faker::Name.name
