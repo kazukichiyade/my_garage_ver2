@@ -2,6 +2,8 @@ require 'test_helper'
 
 class SiteLayoutTest < ActionDispatch::IntegrationTest
 
+  # 統合テスト(実際の操作を想定し複数のコントローラーでのアプリの挙動等)
+
   # Homeページのviewのlayoutやlinkが合ってるかのテスト
   test "home layout links" do
     get root_path

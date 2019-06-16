@@ -4,6 +4,7 @@ kazukichi:
   password_digest: <%= User.digest('password') %>
   a_word: "マツダアテンザ"
   introduction: "こんにちは"
+  admin: true
 
 ayachan:
   name: ayachan
@@ -11,3 +12,19 @@ ayachan:
   password_digest: <%= User.digest('password') %>
   a_word: "トヨタプリウス"
   introduction: "こんにちは"
+
+aaa:
+  name: aaa
+  email: aaa@example.com
+  password_digest: <%= User.digest('password') %>
+  a_word: 日産
+  introduction: "aaaaa"
+
+<% 30.times do |n| %>
+user_<%= n %>:
+  name:  <%= "User#{n}" %>
+  email: <%= "user-#{n}@example.com" %>
+  password_digest: <%= User.digest('password') %>
+  a_word: <%= "マツダ#{n}" %>
+  introduction: <%= "こんにちは#{n}" %>
+<% end %>

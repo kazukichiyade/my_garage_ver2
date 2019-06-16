@@ -2,6 +2,8 @@ require 'test_helper'
 
 class UsersSignupTest < ActionDispatch::IntegrationTest
 
+  # 機能テスト(コントローラーの動作やビューの呼び出しチェック)
+
   # 無効なユーザー登録に対するテスト
   test "invalid signup" do
     get signup_path

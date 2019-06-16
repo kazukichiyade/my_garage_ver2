@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   # editかupdateの処理がされる直前にlogged_in_userメソッドが実行(:onlyを渡す事で指定できる)
-  before_action :logged_in_user, only:[:edit, :update, ]
+  before_action :logged_in_user, only:[:edit, :update]
   before_action :correct_user, only:[:edit, :update]
   before_action :admin_user, only:[:index, :destroy]
 

@@ -2,6 +2,8 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
 
+  # 単体テスト(モデルやビューヘルパー単体の動作チェック)
+
   def setup
     @user = User.new(name: "Example User", email: "user@examle.com",
                     password: "foobar", password_confirmation: "foobar")
