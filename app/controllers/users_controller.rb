@@ -85,8 +85,10 @@ class UsersController < ApplicationController
     # 管理者かどうか確認
     def admin_user
       # ログイン済みのユーザーはadmin属性を持っているか？ 持っていなければリダイレクト
-      redirect_to(root_url) unless current_user.admin?
-      flash[:danger] = "無効な操作です"
+      unless current_user.admin?
+        redirect_to(root_url)
+        flash[:danger] = "無効な操作です"
+      end
     end
 
 end
