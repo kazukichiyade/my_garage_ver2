@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   # editかupdateの処理がされる直前にlogged_in_userメソッドが実行(:onlyを渡す事で指定できる)
-  before_action :logged_in_user, only:[:edit, :update]
+  before_action :logged_in_user, only:[:edit, :update, ]
   before_action :correct_user, only:[:edit, :update]
+  before_action :admin_user, only:[:index, :destroy]
 
 
   def index
@@ -44,6 +45,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "ユーザーを削除しました"
+    redirect_to users_url
+  end
+
   # 外部から使えない
   private
 
@@ -73,6 +80,13 @@ class UsersController < ApplicationController
         redirect_to(root_url)
         flash[:danger] = "無効な操作です"
       end
+    end
+
+    # 管理者かどうか確認
+    def admin_user
+      # ログイン済みのユーザーはadmin属性を持っているか？ 持っていなければリダイレクト
+      redirect_to(root_url) unless current_user.admin?
+      flash[:danger] = "無効な操作です"
     end
 
 end

@@ -3,8 +3,10 @@
     <li class="users">
       <%= gravatar_for user %>
       <%= link_to user.name %>
+      <% if current_user.admin? && !current_user?(user) %>
       <%= link_to "delete", user, method: :delete, class: "btn btn-danger pull-right",
-                      data: { confirm: "You sure?" } %>
+                      data: { confirm: "本当にユーザーを削除しますか?" } %>
+      <% end %>
     </li>
   <% end %>
   <%= paginate @all_user %>

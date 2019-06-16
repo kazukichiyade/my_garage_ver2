@@ -18,7 +18,7 @@ module SessionsHelper
     user == current_user
   end
 
-  # 記憶トークンcookieに対応するユーザーを返す
+  # 記憶トークンcookieに対応するユーザーを返す(ログインしているユーザー)
   def current_user
     if (user_id = session[:user_id]) #ユーザーIDが存在しない場合、コードが終了してnilを返す、# 代入した結果user_idのsessionが存在すれば)
       @current_user ||= User.find_by(id: user_id) # User.find_byを使う事で最初の一回だけリクエスト
