@@ -3,8 +3,10 @@ class UsersController < ApplicationController
   before_action :logged_in_user, only:[:edit, :update]
   before_action :correct_user, only:[:edit, :update]
 
+
   def index
-    @all_user = User.all
+    # perメソッド(kaminari gemで利用できる)を渡す事により1ページあたりの表示を決めれる
+    @all_user = User.page(params[:page]).per(10)
   end
 
   def show
