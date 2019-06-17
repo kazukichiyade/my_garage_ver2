@@ -26,8 +26,13 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+
+  # テンプレートの実際の表示を簡単に確認する為に定義
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :test
+  host = "localhost:3000"
+  config.action_mailer.default_url_options = { host: host, protocol: 'http' }
+
 
   config.action_mailer.perform_caching = false
 

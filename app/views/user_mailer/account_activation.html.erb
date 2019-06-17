@@ -1,0 +1,7 @@
+<h1>アカウントの認証を実行</h1>
+
+<p>こんにちは、<%= @user.name %></p>
+
+<p>My garageへようこそ！<br>安全にご使用頂くため、下記リンクのクリックを宜しくお願い致します！</p>
+
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token, email: @user.email) %>

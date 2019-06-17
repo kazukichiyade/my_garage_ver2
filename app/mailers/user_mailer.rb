@@ -1,8 +1,7 @@
 class UserMailer < ApplicationMailer
 
-  def accouont_activation(user)
+  def account_activation(user)
     @user = user
-    # subject = 件名
     mail to: user.email, subject: "Account activation"
   end
 
@@ -11,3 +10,6 @@ class UserMailer < ApplicationMailer
     mail to: "to@example.org"
   end
 end
+
+# subject = 件名
+# メールの動きを設定する

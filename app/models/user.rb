@@ -59,16 +59,16 @@ class User < ApplicationRecord
   # 外部に公開する必要の無いものはこちら
   private
 
-  # メールアドレスを全て小文字にする
-  def downcase_email
-    # selfは現在のユーザーを指す
-    self.email = email.downcase
-  end
+    # メールアドレスを全て小文字にする
+    def downcase_email
+      # selfは現在のユーザーを指す
+      self.email = email.downcase
+    end
 
-  # 有効化トークンとダイジェストを作成およびダイジェストにトークンを代入する
-  # 新しいユーザーの為に作成
-  def create_activation_digest
-    activation_token = User.new_token
-    activation_digest = User.digest(activation_token)
-  end
+    # 有効化トークンとダイジェストを作成およびダイジェストにトークンを代入する
+    # 新しいユーザーの為に作成
+    def create_activation_digest
+      self.activation_token = User.new_token
+      self.activation_digest = User.digest(activation_token)
+    end
 end
