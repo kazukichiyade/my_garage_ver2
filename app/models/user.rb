@@ -3,9 +3,10 @@ class User < ApplicationRecord
   gravtastic
   # 仮想の属性を作成 #has_secure_passwordの場合は(password属性)自動生成される
   # remember_digestとセット
-  attr_accessor :remember_token
-  # selfは現在のユーザーを指す
-  before_save { self.email = email.downcase }
+  attr_accessor :remember_token, :activation_token
+  # メソッド参照の方が良い(before_action)
+  before_save :downcase_email
+  before_create :create_activation_digest
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
@@ -38,6 +39,7 @@ class User < ApplicationRecord
     # selfは現在のユーザーを指す
     self.remember_token = User.new_token
     # 記憶ダイジェストを更新(バリデーション素通りさせる)
+    # 既にデータベースにいるユーザーに対して行う
     update_attribute(:remember_digest, User.digest(remember_token))
   end
 
@@ -51,5 +53,22 @@ class User < ApplicationRecord
   # ユーザーのログイン情報を破棄する
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+
+  # 外部に公開する必要の無いものはこちら
+  private
+
+  # メールアドレスを全て小文字にする
+  def downcase_email
+    # selfは現在のユーザーを指す
+    self.email = email.downcase
+  end
+
+  # 有効化トークンとダイジェストを作成およびダイジェストにトークンを代入する
+  # 新しいユーザーの為に作成
+  def create_activation_digest
+    activation_token = User.new_token
+    activation_digest = User.digest(activation_token)
   end
 end

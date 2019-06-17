@@ -5,6 +5,8 @@ kazukichi:
   a_word: "マツダアテンザ"
   introduction: "こんにちは"
   admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 ayachan:
   name: ayachan
@@ -12,6 +14,8 @@ ayachan:
   password_digest: <%= User.digest('password') %>
   a_word: "トヨタプリウス"
   introduction: "こんにちは"
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 aaa:
   name: aaa
@@ -19,6 +23,8 @@ aaa:
   password_digest: <%= User.digest('password') %>
   a_word: 日産
   introduction: "aaaaa"
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 <% 30.times do |n| %>
 user_<%= n %>:
@@ -27,4 +33,6 @@ user_<%= n %>:
   password_digest: <%= User.digest('password') %>
   a_word: <%= "マツダ#{n}" %>
   introduction: <%= "こんにちは#{n}" %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 <% end %>

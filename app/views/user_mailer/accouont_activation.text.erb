@@ -1,0 +1,8 @@
+アカウントの認証を実行
+
+こんにちは、<%= @user.name %>,
+
+My_garageへようこそ！
+安全にご使用頂くため、メールチェックにご協力ください！
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
