@@ -1,5 +1,5 @@
 kazukichi:
-  name: Kazukichi
+  name: kazukichi
   email: kazukichi@example.com
   password_digest: <%= User.digest('password') %>
   a_word: "マツダアテンザ"
