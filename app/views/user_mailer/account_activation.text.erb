@@ -1,9 +1,9 @@
-Account activation
+アカウントの認証
 
-Hi,<%= @user.name %>,
+こんにちは、<%= @user.name %>,
 
-welcome to My garage!
+My garageへようこそ！
 
-link to check!!
+安全にご使用頂くため、下記リンクの読み込みを宜しくお願い致します！
 
 <%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
