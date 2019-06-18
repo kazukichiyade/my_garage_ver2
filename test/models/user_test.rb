@@ -88,6 +88,6 @@ class UserTest < ActiveSupport::TestCase
 
   # ダイジェストが存在しない場合のauthenticated?のテスト
   test "authenticated? digest.nil?" do
-    assert_not @user.authenticated?("")
+    assert_not @user.authenticated?(:remember, "")
   end
 end

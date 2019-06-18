@@ -1,5 +1,6 @@
 class UserMailer < ApplicationMailer
 
+  # test/mailers/previews/user_mailer_preview.rbから
   def account_activation(user)
     @user = user
     mail to: user.email, subject: "アカウント認証"

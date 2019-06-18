@@ -43,11 +43,13 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, User.digest(remember_token))
   end
 
+  # 抽象化された
   # 渡されたトークンがダイジェストと一致したらtrueを返す (remember_token)はローカル変数
-  def authenticated?(remember_token)
+  def authenticated?(attribute, token)
+    digest = send("#{attribute}_digest")
     # 記憶digestがnilの場合falseを返しreturnで終了(ログアウトした場合2重でloginは不可)
-    return false if remember_digest.nil?
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(token)
   end
 
   # ユーザーのログイン情報を破棄する

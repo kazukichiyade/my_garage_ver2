@@ -24,7 +24,7 @@ module SessionsHelper
       @current_user ||= User.find_by(id: user_id) # User.find_byを使う事で最初の一回だけリクエスト
     elsif (user_id = cookies.signed[:user_id])
       user = User.find_by(id: user_id)
-      if user && user.authenticated?(cookies[:remember_token])
+      if user && user.authenticated?(:remember, cookies[:remember_token])
         log_in user
         @current_user = user
       end
