@@ -1,2 +1,15 @@
-<h1>PasswordResets#new</h1>
-<p>Find me in app/views/password_resets/new.html.erb</p>
+<%# password resets %>
+<% provide(:title, "PASSWORD RESET") %>
+
+<div class="form">
+  <div class=" row home-signup">
+    <aside class="form-main">
+      <h3>PASSWORD RESET FORM</h3>
+      <div class="card">
+        <article class="card-body">
+          <%= render 'passwordresetform' %>
+        </article>
+      </div>
+    </aside>
+  </div>
+</div>
