@@ -3,7 +3,7 @@ class User < ApplicationRecord
   gravtastic
   # 仮想の属性を作成 #has_secure_passwordの場合は(password属性)自動生成される
   # remember_digestとセット
-  attr_accessor :remember_token, :activation_token
+  attr_accessor :remember_token, :activation_token, :reset_token
   # メソッド参照の方が良い(before_action)
   before_save :downcase_email
   before_create :create_activation_digest
@@ -66,6 +66,18 @@ class User < ApplicationRecord
   # 有効化用のメールを送信する
   def send_activation_email
     UserMailer.account_activation(self).deliver_now
+  end
+
+  # パスワード再設定の属性を設定する
+  def create_reset_digest
+    self.reset_token = User.new_token
+    update_attribute(:reset_digest, User.digest(reset_token))
+    update_attribute(:reset_at, Time.zone.now)
+  end
+
+  # パスワード再設定のメールを送信する
+  def password_reset_email
+    UserMailer.password_reset(self).deliver_now
   end
 
   # 外部に公開する必要の無いものはこちら
