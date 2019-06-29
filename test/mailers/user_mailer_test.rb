@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserMailerTest < ActionMailer::TestCase
 
-  test "accouont_activation" do
+  test "account_activation" do
     user = users(:kazukichi)
     user.activation_token = User.new_token
     mail = UserMailer.account_activation(user)
