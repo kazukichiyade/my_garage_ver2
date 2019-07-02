@@ -1,11 +1,7 @@
-<%
-=begin%>
- <h1>アカウントの認証</h1>
+<h1>アカウントの認証</h1>
 
 <p>こんにちは、<%= @user.name %></p>
 
-<p>My garageへようこそ！<br>安全にご使用頂くため、下記リンクのクリックを宜しくお願い致します！</p> 
-<%
-=end%>
+<p>My garageへようこそ！<br>安全にご使用頂くため、下記リンクのクリックを宜しくお願い致します！</p>
 
-<%= link_to "aaa", edit_account_activation_url(@user.activation_token, email: @user.email) %>
+<%= link_to "アカウントの認証", edit_account_activation_url(@user.activation_token, email: @user.email) %>
