@@ -66,7 +66,7 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
             user: { password: "aaaaaa",
                     password_confirmation: "aaaaaa"} }
     assert is_logged_in?
-    assert_redirected_to @user
     assert_not flash.empty?
+    assert_redirected_to user
   end
 end
