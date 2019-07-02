@@ -15,3 +15,10 @@ end
 # Delete => データの削除(delete) DELETE
 
 # _urlはredirect_toする場合のみ, 主にcontrollerに用いられる
+
+# render
+# render で明示的に view を指定すると、指定した view が表示されます。
+# create アクションの後に、show ページを表示したい場合など、view を変更等
+
+# redirect
+# view の表示には直接は関係なく、新たな HttpRequest が発行されます。※GETのみ

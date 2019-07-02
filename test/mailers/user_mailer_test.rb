@@ -2,6 +2,7 @@ require 'test_helper'
 
 class UserMailerTest < ActionMailer::TestCase
 
+  # アカウント承認用Mailerを表示してテスト
   test "account_activation" do
     user = users(:kazukichi)
     user.activation_token = User.new_token
@@ -18,6 +19,7 @@ class UserMailerTest < ActionMailer::TestCase
     # assert_match CGI.escape(user.email),  mail.body.encoded
   end
 
+  # パスワード再設定用Mailerを表示してテスト
   test "password_reset" do
     user = users(:kazukichi)
     user.reset_token = User.new_token

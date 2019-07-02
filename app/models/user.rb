@@ -71,6 +71,7 @@ class User < ApplicationRecord
   # パスワード再設定の属性を設定する
   def create_reset_digest
     self.reset_token = User.new_token
+    # update_columnsメソッドを使うと一行にまとめる事が可能
     update_attribute(:reset_digest, User.digest(reset_token))
     update_attribute(:reset_at, Time.zone.now)
   end

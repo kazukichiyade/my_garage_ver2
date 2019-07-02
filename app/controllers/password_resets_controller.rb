@@ -31,6 +31,8 @@ class PasswordResetsController < ApplicationController
     # 現在のユーザーの引数で更新が出来た場合
     elsif @user.update_attributes(user_params)
       log_in @user
+      # パスワード再設定が成功したらダイジェストをnilにする
+      @user.update_attribute(:reset_digest, nil)
       flash[:success] = "パスワードの変更を完了しました"
       redirect_to @user
     else
