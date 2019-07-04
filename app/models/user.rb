@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  has_many :microposts
+  # マイクロポストは、その所有者 (ユーザー) と一緒に破棄されることを保証する
+  has_many :microposts, dependent: :destroy
   include Gravtastic
   gravtastic
   # 仮想の属性を作成 #has_secure_passwordの場合は(password属性)自動生成される
