@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :microposts
   include Gravtastic
   gravtastic
   # 仮想の属性を作成 #has_secure_passwordの場合は(password属性)自動生成される
