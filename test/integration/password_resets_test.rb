@@ -24,7 +24,7 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     post password_resets_path, params: { password_reset: { email: @user.email } }
     assert_equal 1, ActionMailer::Base.deliveries.size
     assert_not flash.empty?
-    assert_redirected_to @user
+    assert_redirected_to root_url
 
     # パスワード再設定フォームのテスト
     # インスタンス変数に代入されたオブジェクトを取得(@user)こちらをuserに代入
