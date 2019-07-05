@@ -35,4 +35,9 @@ class MicropostTest < ActiveSupport::TestCase
   test "micropost first" do
     assert_equal microposts(:one), Micropost.first
   end
+
+  # microposts.ymlのtwoが初めの投稿でなければtrue
+  test "micropost not first" do
+    assert_not_equal microposts(:two), Micropost.first
+  end
 end

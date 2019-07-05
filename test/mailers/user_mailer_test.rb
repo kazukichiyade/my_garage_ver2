@@ -10,7 +10,7 @@ class UserMailerTest < ActionMailer::TestCase
     assert_equal ["my_garage@example.com"], mail.from
     assert_equal [user.email], mail.to
     # 絶対誤差で比較テスト 誤差が3秒以内であればtrueになる
-    assert_in_delta user.activated_at, Time.zone.now, 3
+    assert_in_delta user.activated_at, Time.zone.now, 5
     assert_equal "アカウント認証", mail.subject
 
     # ActionMailerで日本語メールを送る場合はエンコードを伴うテストは使えない
@@ -26,7 +26,7 @@ class UserMailerTest < ActionMailer::TestCase
     mail = UserMailer.password_reset(user)
     assert_equal ["my_garage@example.com"], mail.from
     assert_equal [user.email], mail.to
-    assert_in_delta user.reset_at, Time.zone.now, 3
+    assert_in_delta user.reset_at, Time.zone.now, 5
     assert_equal "パスワードリセット", mail.subject
   end
 

@@ -90,4 +90,14 @@ class UserTest < ActiveSupport::TestCase
   test "authenticated? digest.nil?" do
     assert_not @user.authenticated?(:remember, "")
   end
+
+  # (idを紐づけるための) ユーザーを作成そして紐付いたマイクロポストを作成
+  # @userを削除した場合、Micropostの数が1つ減っているか
+  test "micropost destroy" do
+    @user.save
+    @user.microposts.create!(content: "aaa")
+    assert_difference "Micropost.count", -1 do
+      @user.destroy
+    end
+  end
 end

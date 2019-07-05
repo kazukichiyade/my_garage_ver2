@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  # マイクロポストは、その所有者 (ユーザー) と一緒に破棄されることを保証する
+  # ユーザーが削除されたときに、そのユーザーに紐付いた(そのユーザーが投稿した)マイクロポストも一緒に削除されるようになります。
   has_many :microposts, dependent: :destroy
   include Gravtastic
   gravtastic
