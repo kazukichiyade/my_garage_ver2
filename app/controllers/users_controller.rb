@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.page(params[:page]).per(10)
   end
 
   def signup #new
@@ -95,4 +96,3 @@ class UsersController < ApplicationController
     end
 
 end
-

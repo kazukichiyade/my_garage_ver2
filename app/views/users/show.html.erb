@@ -18,5 +18,12 @@
     </div>
   </div>
   <div class="show-bottom">
+      <% if @user.microposts.any? %>
+        <h3>Microposts (<%= @user.microposts.count %>)</h3>
+        <ol class="microposts">
+          <%= render 'micropost_users' %>
+        </ol>
+      <% end %>
+      <%= paginate @microposts %>
   </div>
 </div>
