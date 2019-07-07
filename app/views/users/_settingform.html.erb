@@ -1,5 +1,14 @@
 <%= form_for(@user) do |f| %>
 
+  <div class="form-group">
+    <% if @user.image? %>
+      <%= image_tag @user.image.url %>
+    <% else %>
+      <h2>no-image</h2>
+    <% end %>
+    <%= f.file_field :image %>
+  </div>
+
   <!-- form-group// -->
   <div class="form-group">
     <%= f.label :名前 %>

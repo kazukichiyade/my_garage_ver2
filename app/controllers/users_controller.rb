@@ -61,7 +61,7 @@ class UsersController < ApplicationController
     # Strong Parameters(必須のパラメータと許可されたパラメータを指定)
     def user_params
       params.require(:user).permit(:name, :email, :password,
-                      :password_confirmation, :a_word, :introduction)
+          :password_confirmation, :a_word, :introduction, :image)
     end
 
     #before_action
