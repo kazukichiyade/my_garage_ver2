@@ -11,7 +11,7 @@ gem 'jquery-rails', '4.3.1'
 gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.7.0'
 gem 'gravtastic',   '3.2.6'
-gem 'kaminari',     '0.17.0'
+gem 'kaminari',     '1.2.1'
 gem 'kaminari-bootstrap', '3.0.1'
 
 group :development, :test do
